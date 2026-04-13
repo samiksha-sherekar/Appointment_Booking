@@ -33,4 +33,5 @@ export class AppointmentCard {
       status: 'Cancelled'
     });
   }
+  
 }
