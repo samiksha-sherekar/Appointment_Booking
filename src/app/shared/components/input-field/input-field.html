@@ -1,0 +1,32 @@
+<div class="mb-3">
+  <label >{{ label }}</label>
+  <input 
+    class="form-control"
+    [type]="type"
+    [formControl]="control"
+    [placeholder]="placeholder"
+    [attr.min]="type === 'date' ? min : null"
+  />
+
+  <!-- ❌ Errors -->
+  <div class="text-danger small mt-1" *ngIf="control.touched && control.invalid">
+
+    <div *ngIf="control.errors?.['required']">
+      {{label}} is required
+    </div>
+
+    <div *ngIf="control.errors?.['minlength']">
+      Minimum 3 characters required
+    </div>
+
+    <div *ngIf="control.errors?.['pattern']">
+      Invalid {{label}}
+    </div>
+
+    <div *ngIf="control.errors?.['pastDate']">
+      Past date not allowed
+    </div>
+
+  </div>
+
+</div>

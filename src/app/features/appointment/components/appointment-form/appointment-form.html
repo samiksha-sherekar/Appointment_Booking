@@ -1,0 +1,39 @@
+<div class="card p-3 shadow-sm">
+  <h5>Book Appointment</h5>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <app-input-field
+      label="Patient Name"
+      [control]="form.controls.patientName">
+    </app-input-field>
+
+    <app-input-field
+      label="Date"
+      type="date"
+      [control]="form.controls.date"
+      [min]="minDate">
+    </app-input-field>
+
+    <div class="mb-2">
+      <label>Doctor</label>
+      <select class="form-control" formControlName="doctorName">
+        <option value="">Select Doctor</option>
+        <option *ngFor="let d of doctors">{{d}}</option>
+      </select>
+    </div>
+
+    <div class="mb-2">
+      <label>Time Slot</label>
+      <select class="form-control" formControlName="time">
+        <option [ngValue]="null" disabled>Select Time</option>
+        <option *ngFor="let s of slots" [disabled]="isBooked(s)">
+          {{s}}
+        </option>
+      </select>
+    </div>
+
+    <button class="btn btn-primary w-100 mt-2">Book</button>
+
+  </form>
+</div>

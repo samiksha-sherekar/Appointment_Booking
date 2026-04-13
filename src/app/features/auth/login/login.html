@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="card p-4 mx-auto" style="max-width:400px">
+
+    <!-- Tabs -->
+    <div class="d-flex mb-3">
+      <button class="btn w-50"
+        [class.btn-primary]="role==='patient'"
+        (click)="role='patient'">Patient</button>
+
+      <button class="btn w-50"
+        [class.btn-primary]="role==='admin'"
+        (click)="role='admin'">Admin</button>
+    </div>
+
+    <input class="form-control mb-2"
+      placeholder="Email"
+      [(ngModel)]="email">
+
+    <input class="form-control mb-3"
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password">
+
+    <button class="btn btn-success w-100" (click)="login()">
+      Login
+    </button>
+
+  </div>
+</div>
